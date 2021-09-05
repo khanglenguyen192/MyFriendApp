@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFriendApp.Pages.SignUpPagePortrait"
+             BackgroundColor="{StaticResource BaseBackgroundColor}"
+             xmlns:img ="clr-namespace:MyFriendApp.Base.Images">
+  <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Source="{img:ImageResource MyFriendApp.Base.Resources.Images.eff_background_sign_up_page.png}"
+                   Aspect="Fill"
+                   Grid.Row="0"/>
+            <Frame Grid.Row="0"
+                   BackgroundColor="{StaticResource BaseWhiteColor}"
+                   CornerRadius="{StaticResource BaseCornerRadius}"
+                   WidthRequest="{StaticResource LoginPortraitWidth}"
+                   HeightRequest="{StaticResource LoginPortraitHeight}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center">
+                <StackLayout Padding="{StaticResource SmallMargin}"
+                             Spacing="{StaticResource NormalRowSpacing}">
+                    <Label Text="Create Account"
+                           HorizontalOptions="Center"
+                           FontSize="{StaticResource HugeTextSize}"
+                           Style="{StaticResource BoldNormalLabelStyle}"
+                           MaxLines="1"/>
+                    <ScrollView Margin="{StaticResource BigMarginBottom}">
+                        <StackLayout Padding="{StaticResource SmallMargin}"
+                                     Spacing="{StaticResource NormalRowSpacing}">
+                            <Label Text="Your Name"/>
+                            <Entry Placeholder="Enter Your Name"
+                                   x:Name="userName"
+                                   Text="{Binding Name}"/>
+                            <Label Text="Email"/>
+                            <Entry Placeholder="Enter Email"
+                                   x:Name="userEmail"
+                                   Text="{Binding Email}"/>
+                            <Label Text="Username"/>
+                            <Entry Placeholder="Enter Username"
+                                   x:Name="userAccount"
+                                   Text="{Binding Account}"/>
+                            <Label Text="Password"/>
+                            <Entry Placeholder="Create Password"
+                                   IsPassword="True"
+                                   x:Name="userPassword"
+                                   Text="{Binding Password}"/>
+                            <Label Text="Confirm Password"/>
+                            <Entry Placeholder="Enter Password Again"
+                                   IsPassword="True"
+                                   x:Name="userConfirmPassword"
+                                   Text="{Binding ConfirmPassword}"/>
+                        </StackLayout>
+                    </ScrollView>
+                    <Button Text="SIGN UP"
+                            FontAttributes="Bold"
+                            Style="{StaticResource LoginButtonStyle}"
+                            BackgroundColor="{StaticResource SignUpBlueColor}"
+                            CornerRadius="{StaticResource BigButtonCornerRadius}"
+                            Margin="{StaticResource NoMargin}"
+                            Command="{Binding NavigateSignUpCommand}"/>
+                    <Label Text="Already have an account?"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"/>
+                    <Button x:Name="btnLogin"
+                            Text="Login now!"
+                            TextColor="{StaticResource SignUpBlueColor}"
+                            HorizontalOptions="Center"
+                            BackgroundColor="{StaticResource BaseWhiteColor}"
+                            Padding="{StaticResource NoPadding}"
+                            Margin="{StaticResource NoMargin}"
+                            FontAttributes="Bold"
+                            Command="{Binding NavigateLoginCommand}"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

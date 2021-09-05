@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFriendApp.Pages.MyQRCodePagePortrait"
+             BackgroundColor="{StaticResource BaseWhiteColor}"
+             xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
+  <ContentView.Content>
+        <StackLayout Padding="{StaticResource SmallMargin}"
+                     Spacing="{StaticResource NormalRowSpacing}">
+            <Label Text="My QR Code"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="{StaticResource BigDescTextSize}"
+                   Style="{StaticResource BoldNormalLabelStyle}"/>
+            <zxing:ZXingBarcodeImageView IsVisible="True"
+                                         x:Name="MyQRCode"
+                                         BarcodeFormat="QR_CODE"
+                                         WidthRequest="300"
+                                         HeightRequest="300"
+                                         BarcodeValue="{Binding MyAccount}">
+                <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                    <zxcm:EncodingOptions Width="300" Height="300"/>
+                </zxing:ZXingBarcodeImageView.BarcodeOptions>
+            </zxing:ZXingBarcodeImageView>
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>

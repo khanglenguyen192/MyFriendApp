@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFriendApp.Pages.SignUpPageLandscape"
+             BackgroundColor="{StaticResource BaseBackgroundColor}"
+             xmlns:img ="clr-namespace:MyFriendApp.Base.Images">
+  <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Source="{img:ImageResource MyFriendApp.Base.Resources.Images.eff_background_sign_up_page.png}"
+                   Aspect="Fill"
+                   Grid.Row="0"/>
+            <Frame Grid.Row="0" 
+                   Padding="{StaticResource NoPadding}"
+                   BackgroundColor="{StaticResource BaseWhiteColor}"
+                   CornerRadius="{StaticResource BaseCornerRadius}"
+                   WidthRequest="{StaticResource SignUpLandscapeWidth}"
+                   HeightRequest="{StaticResource SignUpLandscapeHeight}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{img:ImageResource MyFriendApp.Base.Resources.Images.eff_background_sign_up_frame.png}"
+                           Aspect="Fill"
+                           Grid.Column="0"/>
+                    <StackLayout Grid.Column="0"
+                                 BackgroundColor="Transparent"
+                                 Spacing="{StaticResource NormalRowSpacing}">
+                        <Label Text="Adventure
+                               Starts Here"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center"
+                               TextColor="{StaticResource BaseWhiteColor}"
+                               FontSize="{StaticResource HugeTextSize}"
+                               Style="{StaticResource BoldNormalLabelStyle}"
+                               MaxLines="2"/>
+                        <Label Text="Create an account to
+                               join the community"
+                               HorizontalTextAlignment="Center"
+                               TextColor="{StaticResource BaseBackgroundColor}"
+                               FontSize="{StaticResource BigDescTextSize}"
+                               Style="{StaticResource BoldNormalLabelStyle}"
+                               Margin="{StaticResource ExtraMarginBottom}"
+                               MaxLines="2"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1"
+                                 Padding="{StaticResource ExtraMarginLeftRight}"
+                                 Spacing="{StaticResource NormalRowSpacing}">
+                        <Label Text="Create Account"
+                               HorizontalOptions="Center"
+                               FontSize="{StaticResource HugeTextSize}"
+                               Style="{StaticResource BoldNormalLabelStyle}"
+                               Margin="{StaticResource BigMarginTop}"
+                               MaxLines="1"/>
+                        <StackLayout Padding="{StaticResource SmallMargin}"
+                                     Spacing="{StaticResource NormalRowSpacing}">
+                            <Label Text="Your Name"/>
+                            <Entry Placeholder="Enter Your Name"/>
+                            <Label Text="Email"/>
+                            <Entry Placeholder="Enter Email"/>
+                            <Label Text="Username"/>
+                            <Entry Placeholder="Enter Username"/>
+                            <Label Text="Password"/>
+                            <Entry Placeholder="Create Password"
+                                   IsPassword="True"/>
+                            <Label Text="Confirm Password"/>
+                            <Entry Placeholder="Enter Password Again"
+                                   IsPassword="True"/>
+                        </StackLayout>
+                        <Button Text="SIGN UP"
+                                FontAttributes="Bold"
+                                Style="{StaticResource LoginButtonStyle}"
+                                BackgroundColor="{StaticResource SignUpBlueColor}"
+                                CornerRadius="{StaticResource BigButtonCornerRadius}"/>
+                        <Label Text="Already have an account?"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End"/>
+                        <Button x:Name="btnLogin"
+                                Text="Login now!"
+                                TextColor="{StaticResource SignUpBlueColor}"
+                                HorizontalOptions="Center"
+                                BackgroundColor="{StaticResource BaseWhiteColor}"
+                                Padding="{StaticResource NoPadding}"
+                                Margin="{StaticResource NoMargin}"
+                                FontAttributes="Bold"
+                                Command="{Binding NavigateLoginCommand}"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </Grid>
+  </ContentView.Content>
+</ContentView>

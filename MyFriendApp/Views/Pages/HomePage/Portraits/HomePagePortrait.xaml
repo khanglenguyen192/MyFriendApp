@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFriendApp.Pages.HomePagePortrait"
+             BackgroundColor="{StaticResource BaseBackgroundColor}">
+    <ContentView.Content>
+        <StackLayout Padding="{StaticResource SmallMargin}">
+            <SearchBar Placeholder="Find new friends"
+                       Margin="{StaticResource NormalMarginBottom}"/>
+            <Grid Margin="{StaticResource NormalMarginBottom}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0"
+                        Text="Scan QR Code"
+                        FontAttributes="Bold"
+                        Style="{StaticResource LoginButtonStyle}"
+                        CornerRadius="{StaticResource BaseButtonCornerRadius}"
+                        Command="{Binding NavigateScanQRCodeCommand}"/>
+                <Button Grid.Column="1"
+                        Text="My QR Code"
+                        FontAttributes="Bold"
+                        Style="{StaticResource LoginButtonStyle}"
+                        CornerRadius="{StaticResource BaseButtonCornerRadius}"
+                        Command="{Binding NavigateMyQRCodeCommand}"/>
+                <Button Grid.Column="2"
+                        Text="Sign out"
+                        FontAttributes="Bold"
+                        Style="{StaticResource LoginButtonStyle}"
+                        CornerRadius="{StaticResource BaseButtonCornerRadius}"
+                        Command="{Binding NavigateBackCommand}"/>
+            </Grid>
+            <ListView x:Name="AccountListView"
+                      ItemsSource="{Binding DataSource}" 
+                      VerticalScrollBarVisibility="Always" 
+                      HasUnevenRows="True"
+                      SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="{StaticResource SmallMargin}">
+                                <Label Text="{Binding FullName}"
+                                       Style="{StaticResource BoldNormalLabelStyle}"/>
+                                <Label Text="{Binding Email}"
+                                       Style="{StaticResource BoldNormalLabelStyle}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

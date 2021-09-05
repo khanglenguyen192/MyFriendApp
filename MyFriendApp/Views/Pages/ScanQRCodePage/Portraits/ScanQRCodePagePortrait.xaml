@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFriendApp.Pages.ScanQRCodePagePortrait"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
+  <ContentView.Content>
+      <StackLayout>
+            <!--OnScanResult="scanView_OnScanResult"-->
+            <zxing:ZXingScannerView x:Name="scanView"
+                                    
+                                    IsScanning="True"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    WidthRequest="300"
+                                    HeightRequest="300"/>
+            <zxing:ZXingDefaultOverlay TopText="Scan QR Code"/>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>
