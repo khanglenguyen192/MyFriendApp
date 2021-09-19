@@ -145,6 +145,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="BarcodeScanner.XF">
+      <Version>5.0.8</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
     </PackageReference>

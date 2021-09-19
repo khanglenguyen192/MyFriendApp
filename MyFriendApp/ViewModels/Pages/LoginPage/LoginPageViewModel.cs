@@ -34,8 +34,8 @@ namespace MyFriendApp.ViewModels
         public LoginPageViewModel(INavigationService navigationService) 
             : base(navigationService)
         {
-            Account = "";
-            Password = "";
+            Account = String.Empty;
+            Password = String.Empty;
         }
 
         public ICommand NavigateSignUpCommand => new Command(async () =>
@@ -46,8 +46,8 @@ namespace MyFriendApp.ViewModels
         public ICommand NavigateLoginCommand => new Command(async () =>
         {
             await _navigationService.NavigateAsync(nameof(HomePage));
-            Account = "";
-            Password = "";
+            Account = String.Empty;
+            Password = String.Empty;
         });
 
         public ICommand NavigateForgotPasswordCommand => new Command(async () =>

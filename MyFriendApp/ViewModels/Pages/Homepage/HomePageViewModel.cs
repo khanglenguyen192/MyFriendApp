@@ -46,14 +46,14 @@ namespace MyFriendApp.ViewModels
 
         public ICommand NavigateMyQRCodeCommand => new Command(async () =>
         {
-            _navigationService.Register(nameof(ScanQRCodePage), typeof(ScanQRCodePage));
-            await _navigationService.NavigateAsync(nameof(ScanQRCodePage));
+            _navigationService.Register(nameof(MyQRCodePage), typeof(MyQRCodePage));
+            await _navigationService.NavigateAsync(nameof(MyQRCodePage));
         });
 
         public ICommand NavigateScanQRCodeCommand => new Command(async () =>
         {
-            _navigationService.Register(nameof(MyQRCodePage), typeof(MyQRCodePage));
-            await _navigationService.NavigateAsync(nameof(MyQRCodePage));
+            _navigationService.Register(nameof(ScanQRCodePage), typeof(ScanQRCodePage));
+            await _navigationService.NavigateAsync(nameof(ScanQRCodePage));
         });
     }
 }

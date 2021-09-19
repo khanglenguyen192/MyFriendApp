@@ -65,13 +65,13 @@ namespace MyFriendApp.ViewModels
         public SignUpPageViewModel(INavigationService navigationService) 
             : base(navigationService)
         {
-            Name = "";
-            Email = "";
-            Account = "";
-            Password = "";
-            ConfirmPassword = "";
+            Name = string.Empty;
+            Email = string.Empty;
+            Account = string.Empty;
+            Password = string.Empty;
+            ConfirmPassword = string.Empty;
         }
-        public ICommand NavigateSignUpCommand => new Command(async () =>
+        public ICommand NavigateSignUpCommand => new Command( () =>
         {
             if (Name.Length == 0 || Email.Length == 0 || Account.Length == 0 || Password.Length == 0 || ConfirmPassword.Length == 0)
             {
@@ -88,13 +88,12 @@ namespace MyFriendApp.ViewModels
             else
             {
                 Account newAccount = new Account(Name, Email, Account, Password);
-                Name = "";
-                Email = "";
-                Account = "";
-                Password = "";
-                ConfirmPassword = "";
+                Name = string.Empty;
+                Email = string.Empty;
+                Account = string.Empty;
+                Password = string.Empty;
+                ConfirmPassword = string.Empty;
                 PostAccount(newAccount, Url);
-                DependencyService.Get<IToastService>().Show("Successful");
             }
         });
 
@@ -108,7 +107,15 @@ namespace MyFriendApp.ViewModels
             var serializeItem = JsonConvert.SerializeObject(account);
             StringContent body = new StringContent(serializeItem, Encoding.UTF8, "application/json");
             HttpClient client = new HttpClient();
-            await client.PostAsync(url, body);
+            HttpResponseMessage response = await client.PostAsync(url, body);
+            if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+            {
+                DependencyService.Get<IToastService>().Show("Successful");
+            }
+            else
+            {
+                DependencyService.Get<IToastService>().Show("Failed");
+            }
         }
     }
 }
